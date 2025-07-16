@@ -1,0 +1,79 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+  "name": "Ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:noble",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "portsAttributes": {
+    "3000-9000": {
+      "label": "Ventes",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "updateContentCommand": "npm install",
+  "postAttachCommand": {
+    "start": "npm run start"
+  },
+  "waitFor": "updateContentCommand",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "jkearins.action-buttons-ext@0.1.1",
+        "dbaeumer.vscode-eslint",
+        "ritwickdey.LiveServer"
+      ],
+      "settings": {
+        "tasks": {
+          "version": "2.0.0",
+          "tasks": [
+            {
+              "label": "open",
+              "command": "${command:extension.liveServer.goOnline}"
+            }
+          ]
+        },
+        "files.exclude": {
+          "package-lock.json": true,
+          "node_modules/": true
+        },
+        "chat.sendElementsToChat.enabled": false,
+        "editor.minimap.enabled": false,
+        "liveServer.settings.NoBrowser": true,
+      	"liveServer.settings.donotShowInfoMsg": true,
+        "actionButtons": {
+          "commands": [
+            {
+              "name": "💻 Terminal",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "workbench.action.terminal.toggleTerminal",
+              "tooltip": "Open a terminal"
+            },
+            {
+              "name": "🔎 Split",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "workbench.action.moveEditorToNextGroup",
+              "tooltip": "Move your active tab to the side"
+            },
+            {
+              "name": "🏠 Open",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "workbench.action.tasks.runTask",
+              "args": [
+                "open"
+              ],
+              "tooltip": "Open your site"
+            }
+          ],
+          "defaultColor": "none",
+          "reloadButton": null
+        }
+      }
+    }
+  }
+}
