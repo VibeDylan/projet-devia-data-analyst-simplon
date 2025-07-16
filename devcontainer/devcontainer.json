@@ -1,48 +1,25 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-  "name": "Ubuntu",
-  "image": "mcr.microsoft.com/devcontainers/base:noble",
+  "name": "python-plotly-server",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/pip-tools:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {}
   },
-  "portsAttributes": {
-    "3000-9000": {
-      "label": "Ventes",
-      "onAutoForward": "openPreview"
-    }
-  },
-  "updateContentCommand": "npm install",
-  "postAttachCommand": {
-    "start": "npm run start"
-  },
-  "waitFor": "updateContentCommand",
+  "forwardPorts": [5500],
+  "postCreateCommand": "pip install -r requirements.txt",
   "customizations": {
     "vscode": {
       "extensions": [
-        "jkearins.action-buttons-ext@0.1.1",
-        "dbaeumer.vscode-eslint",
-        "ritwickdey.LiveServer"
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ritwickdey.LiveServer",
+        "jkearins.action-buttons-ext"
       ],
       "settings": {
-        "tasks": {
-          "version": "2.0.0",
-          "tasks": [
-            {
-              "label": "open",
-              "command": "${command:extension.liveServer.goOnline}"
-            }
-          ]
-        },
-        "files.exclude": {
-          "package-lock.json": true,
-          "node_modules/": true
-        },
-        "chat.sendElementsToChat.enabled": false,
-        "editor.minimap.enabled": false,
         "liveServer.settings.NoBrowser": true,
-      	"liveServer.settings.donotShowInfoMsg": true,
+        "liveServer.settings.donotShowInfoMsg": true,
+        "editor.minimap.enabled": false,
+        "chat.sendElementsToChat.enabled": false,
         "actionButtons": {
           "commands": [
             {
@@ -50,30 +27,40 @@
               "singleInstance": true,
               "useVsCodeApi": true,
               "command": "workbench.action.terminal.toggleTerminal",
-              "tooltip": "Open a terminal"
+              "tooltip": "Open terminal"
             },
             {
               "name": "🔎 Split",
               "singleInstance": true,
               "useVsCodeApi": true,
               "command": "workbench.action.moveEditorToNextGroup",
-              "tooltip": "Move your active tab to the side"
+              "tooltip": "Split editor"
             },
             {
-              "name": "🏠 Open",
+              "name": "🏠 Open HTML",
+              "singleInstance": true,
+              "useVsCodeApi": true,
+              "command": "workbench.action.files.openFile",
+              "args": [
+                "${workspaceFolder}/ventes-par-region.html"
+              ],
+              "tooltip": "Open HTML"
+            },
+            {
+              "name": "🚀 Live Server",
               "singleInstance": true,
               "useVsCodeApi": true,
               "command": "workbench.action.tasks.runTask",
               "args": [
-                "open"
+                "start-live-server"
               ],
-              "tooltip": "Open your site"
+              "tooltip": "Start Live Server"
             }
-          ],
-          "defaultColor": "none",
-          "reloadButton": null
+          ]
         }
       }
     }
-  }
+  },
+  "remoteUser": "vscode"
 }
+
