@@ -38,25 +38,27 @@
         "actionButtons": {
           "commands": [
             {
-              "name": "🔁 Message de bienvenue",
+              "name": "🔁 MESSAGE DE BIENVENUE",
+              "singleInstance": true,
+              "useVsCodeApi": true,
               "command": "bash .devcontainer/on-start.sh"
             },
             {
-              "name": "💻 Terminal",
+              "name": "💻 TERMINAL",
               "singleInstance": true,
               "useVsCodeApi": true,
               "command": "workbench.action.terminal.toggleTerminal",
               "tooltip": "Open terminal"
             },
             {
-              "name": "🔎 Split",
+              "name": "🔎 SPLIT",
               "singleInstance": true,
               "useVsCodeApi": true,
               "command": "workbench.action.moveEditorToNextGroup",
               "tooltip": "Split editor"
             },
             {
-              "name": "🚀 Preview",
+              "name": "🚀 PREVIEW",
               "singleInstance": true,
               "useVsCodeApi": true,
               "command": "workbench.action.tasks.runTask",
