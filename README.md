@@ -24,8 +24,8 @@ Appuyez sur la touche `Entrée` de votre clavier, après quelques secondes d'ex�
 
 ## Observer son résultat
 
-Cliquez sur le bouton "PREVIEW" depuis la barre d'outils en bas de page. Sélectionnez l'option "Preview in a new window".
-Depuis la nouvelle fenêtre de votre navigateur qui vient de s'ouvrir, sélectionner le fichier "figure1.html".
+Cliquez sur le bouton "PREVIEW" depuis la barre d'outils en bas de page.
+Depuis la nouvelle fenêtre de votre navigateur qui vient de s'ouvrir, sélectionner le fichier "ventes-par-region.html".
 
 Vous venez d'ouvrir le graphique en version web généré par le fichier "app.py" exécuté avec Python3 !
 

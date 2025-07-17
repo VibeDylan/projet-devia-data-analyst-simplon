@@ -2,10 +2,15 @@
   "name": "python-plotly-server",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
   "features": {
-    "ghcr.io/devcontainers/features/pip-tools:1": {},
     "ghcr.io/devcontainers/features/common-utils:2": {}
   },
   "forwardPorts": [5500],
+  "portsAttributes": {
+    "5500": {
+      "label": "Live Server",
+      "onAutoForward": "openPreview"
+    }
+  },
   "postCreateCommand": "pip install -r requirements.txt",
   "customizations": {
     "vscode": {
@@ -16,12 +21,26 @@
         "jkearins.action-buttons-ext"
       ],
       "settings": {
-        "liveServer.settings.NoBrowser": true,
+        "tasks": {
+          "version": "2.0.0",
+          "tasks": [
+            {
+              "label": "open",
+              "type": "shell",
+              "command": "${command:extension.liveServer.goOnline}"
+            }
+          ]
+        },
+        "liveServer.settings.NoBrowser": false,
         "liveServer.settings.donotShowInfoMsg": true,
         "editor.minimap.enabled": false,
         "chat.sendElementsToChat.enabled": false,
         "actionButtons": {
           "commands": [
+            {
+              "name": "🔁 Message de bienvenue",
+              "command": "bash .devcontainer/on-start.sh"
+            },
             {
               "name": "💻 Terminal",
               "singleInstance": true,
@@ -37,22 +56,12 @@
               "tooltip": "Split editor"
             },
             {
-              "name": "🏠 Open HTML",
-              "singleInstance": true,
-              "useVsCodeApi": true,
-              "command": "workbench.action.files.openFile",
-              "args": [
-                "${workspaceFolder}/ventes-par-region.html"
-              ],
-              "tooltip": "Open HTML"
-            },
-            {
-              "name": "🚀 Live Server",
+              "name": "🚀 Preview",
               "singleInstance": true,
               "useVsCodeApi": true,
               "command": "workbench.action.tasks.runTask",
               "args": [
-                "start-live-server"
+                "open"
               ],
               "tooltip": "Start Live Server"
             }
