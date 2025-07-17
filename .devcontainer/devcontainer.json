@@ -58,7 +58,7 @@
               "tooltip": "Split editor"
             },
             {
-              "name": "🚀 PREVIEW",
+              "name": "🏠 PREVIEW",
               "singleInstance": true,
               "useVsCodeApi": true,
               "command": "workbench.action.tasks.runTask",
