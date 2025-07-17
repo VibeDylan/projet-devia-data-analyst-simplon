@@ -35,7 +35,7 @@ L’environnement est prêt lorsque vous voyez apparaître en bas de la page les
 
 ← `app.py`: ceci est un fichier python, le coeur du projet.
 
-Pour executer le fichier Python et ainsi générer un graphique sous forme de page web, cliquez sur le bouton "TERMINAL" depuis la barre d'outils en bas de page.
+Pour executer le fichier Python et ainsi générer un graphique sous forme de page web, cliquez sur le bouton "💻 TERMINAL" depuis la barre d'outils en bas de page.
 
 Puis écrivez la commande suivante : `python3 app.py`.
 
@@ -47,7 +47,7 @@ Appuyez sur la touche `Entrée` de votre clavier, après quelques secondes d'ex�
 
 ## Observer son résultat
 
-Cliquez sur le bouton "PREVIEW" depuis la barre d'outils en bas de page.
+Cliquez sur le bouton "🏠 PREVIEW" depuis la barre d'outils en bas de page.
 Depuis la nouvelle fenêtre de votre navigateur qui vient de s'ouvrir, sélectionner le fichier "ventes-par-region.html".
 
 Vous venez d'ouvrir le graphique en version web généré par le fichier "app.py" exécuté avec Python3 !
