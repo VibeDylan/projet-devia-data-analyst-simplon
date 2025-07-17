@@ -31,9 +31,9 @@ L’environnement est prêt lorsque vous voyez apparaître en bas de la page les
 # Le projet
 ## Comment ça marche ?
 
-← `README.md`: Il s'agit de ce fichier, que vous lisez en ce moment même.
+* `README.md`: Il s'agit de ce fichier, que vous lisez en ce moment même.
 
-← `app.py`: ceci est un fichier python, le coeur du projet.
+* `app.py`: ceci est un fichier python, le coeur du projet.
 
 Pour executer le fichier Python et ainsi générer un graphique sous forme de page web, cliquez sur le bouton "💻 TERMINAL" depuis la barre d'outils en bas de page.
 
