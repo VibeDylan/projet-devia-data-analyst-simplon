@@ -3,9 +3,9 @@ import plotly.express as px
 
 url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSC4KusfFzvOsr8WJRgozzsCxrELW4G4PopUkiDbvrrV2lg0S19-zeryp02MC9WYSVBuzGCUtn8ucZW/pub?output=csv'
 ventes = pd.read_csv(url, sep=None, engine='python') 
+ventes = ventes[ventes['date'] != 'date']
 
-
-ventes['chiffre_affaires'] = ventes['prix'] * ventes['qte']
+ventes['chiffre_affaires'] = ventes['prix'] * ventes['qte'] # remove phantom line in CSV (for "date")
 
 ventes_par_produit = ventes.groupby('produit', as_index=False)['qte'].sum().sort_values('qte', ascending=False)
 
