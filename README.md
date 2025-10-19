@@ -1,59 +1,52 @@
-# Qu'est-ce que c'est ?
+# Projet : Analyse des ventes d'une PME 
 
-Ceci est un projet de visualisation de données, qui utilise le langage de programmation Pyhton.
-Il utilise deux outils : [pandas](https://pandas.pydata.org/about/) et [plotly](https://plotly.com/python/).
+## Objectif
 
-- Pandas va nous permettre de télécharger un fichier de données CSV depuis une URL.
-- Plotly va nous permettre de générer des graphiques puis de les exporter en page web (au format HTML).
+Le but de ce projet est d'analyser les ventes d'une PME sur une période donnée afin de :
 
-# Démarrer le projet dans GitHub Codespaces
-* Cliquez sur "Utiliser ce modèle" ("Use this template") en haut à droite de la page, puis sur "Créer un nouveau dépôt". [Voici les étapes pour créer un dépôt](https://docs.github.com/fr/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template). Si vous n'avez pas de compte GitHub, il vous sera demandé d'en créer un avant de pouvoir créer le dépôt.
-* Une fois dans votre dépôt, ouvrez le site dans un Codespace en cliquant sur Code > Codespaces, puis créez un nouveau Codespace sur votre branche principale.
+* Calculer le chiffre d'affaires total
+* Identifier les ventes par produit
+* Identifier les ventes par région
+* Suivre l'évolution du chiffre d'affaires par jour
 
-<img alt="Créer un Codespace" src="https://github.com/user-attachments/assets/cb29a8da-d1ac-42f5-962c-7d43b8011324" width="400px"/><br/>
+## Étapes réalisées
 
-## Attendez que l’environnement de travail sur Codespace soit prêt
+### 1. Préparation des données
 
-L'environnement de travail Codespace va se construire automatiquement au premier lancement. Cela peut prendre plusieurs minutes.
+* Importation du fichier CSV fourni par le client.
+* Vérification et nettoyage des données, en supprimant notamment les lignes fantômes ou doublons.
+* Calcul du chiffre d'affaires pour chaque vente (`prix * qte`).
 
-L’environnement est prêt lorsque vous voyez apparaître en bas de la page les boutons suivants :
+### 2. Analyse SQL
 
-    💬 MESSAGE DE BIENVENUE
+* Création de la table `ventes` dans SQLiteOnline.
+* Exécution des requêtes SQL suivantes :
 
-    💻 TERMINAL
+  1. Chiffre d'affaires total
+  2. Ventes par produit (quantité et chiffre d'affaires)
+  3. Ventes par région (chiffre d'affaires)
+  4. Chiffre d'affaires par jour
+* Sauvegarde de toutes les requêtes dans `analyse_ventes.sql`.
 
-    🔎 SPLIT
+### 3. Analyse Python et visualisation
 
-    🏠 PREVIEW
+* Chargement des données avec Pandas.
+* Filtrage des éventuelles lignes fantômes.
+* Calcul du chiffre d'affaires par ligne.
+* Création des graphiques interactifs avec Plotly :
 
-➡️ Ne touchez à rien pendant le chargement.
+  * `ventes-par-produit.html` : ventes par produit (quantité)
+  * `ca-par-produit.html` : chiffre d'affaires par produit (€)
+* Les fichiers HTML sont exportés et peuvent être consultés dans un navigateur.
 
-# Le projet
-## Comment ça marche ?
+## Livrables
 
-* `README.md`: Il s'agit de ce fichier, que vous lisez en ce moment même.
+* `ventes.csv` : fichier source des ventes.
+* `analyse_ventes.sql` : requêtes SQL pour l'analyse.
+* `analyse_ventes.py` : script Python pour visualisation.
+* `ventes-par-produit.html` et `ca-par-produit.html` : graphiques interactifs.
+* `synthese.md` : fiche synthèse des résultats.
 
-* `app.py`: ceci est un fichier python, le coeur du projet.
+## Conclusion
 
-Pour executer le fichier Python et ainsi générer un graphique sous forme de page web, cliquez sur le bouton "💻 TERMINAL" depuis la barre d'outils en bas de page.
-
-Puis écrivez la commande suivante : `python3 app.py`.
-
-Cette commande se divise en deux partie : 
-- d'abord "python3" qui indique que l'on souhaite utiliser Python, et plus précisemment, la version 3.
-- Puis "app.py" qui indique que l'on souhaite exécuter le programme python contenu dans le fichier "app.py" (avec Python3 donc).
-
-Appuyez sur la touche `Entrée` de votre clavier, après quelques secondes d'exécution, vous devriez obtenir un message de succès.
-
-## Observer son résultat
-
-Cliquez sur le bouton "🏠 PREVIEW" depuis la barre d'outils en bas de page.
-Depuis la nouvelle fenêtre de votre navigateur qui vient de s'ouvrir, sélectionner le fichier "ventes-par-region.html".
-
-Vous venez d'ouvrir le graphique en version web généré par le fichier "app.py" exécuté avec Python3 !
-
-Prenez le temps de lire, d'analyser voir même de bidouiller le fichier "app.py" puis lancez-vous dans les consignes du projet pour la sélection Simplon !
-
-# Publier vos modifications sur votre propre dépôt GitHub
-Une fois que vous avez terminé de travailler sur les consignes du projet et que vous souhaitez publier vos modifications dans votre dépôt, vous devrez suivre les étapes décrites dans la section « Validation (commit) de vos modifications » de [cette ressource](https://docs.github.com/fr/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#validation-commit-de-vos-modifications
-).
+Ce projet permet d'avoir une vision claire des ventes de la PME et d'identifier les produits et régions les plus performants, ainsi que l'évolution quotidienne du chiffre d'affaires. Les graphiques permettent une visualisation rapide et interactive des données pour faciliter la prise de décision.
