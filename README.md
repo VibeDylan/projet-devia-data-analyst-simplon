@@ -41,9 +41,8 @@ Le but de ce projet est d'analyser les ventes d'une PME sur une période donnée
 
 ## Livrables
 
-* `ventes.csv` : fichier source des ventes.
 * `analyse_ventes.sql` : requêtes SQL pour l'analyse.
-* `analyse_ventes.py` : script Python pour visualisation.
+* `app.py` : script Python pour visualisation.
 * `ventes-par-produit.html` et `ca-par-produit.html` : graphiques interactifs.
 * `synthese.md` : fiche synthèse des résultats.
 
